@@ -134,6 +134,15 @@ function askPackage() {
   return deferred.promise;
 }
 
+if(process.argv.length > 2)
+{
+	packagesToInstall = process.argv.slice(2);
+	console.log('Going to cache these packages: ' + packagesToInstall.join(', '));
+	
+	megaFunction();
+	return;
+}
+
 askPackage()
   .then(function () {
     var deferred = Q.defer();
