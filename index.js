@@ -37,7 +37,7 @@ function reinstallReq() {
       packagesAlreadyInstalled = packagesAlreadyInstalled.concat(packagesToInstall);
 
       return getFolderPackages();
-    })
+    }, function(err) {console.log(err);})
     .then(function (folderPackages) {
       packagesToInstall = _.difference(folderPackages, packagesAlreadyInstalled);
 
