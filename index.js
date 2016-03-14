@@ -7,7 +7,9 @@ var Q = require('q');
 var _ = require('lodash');
 var fs = require('fs');
 var inquirer = require("inquirer");
-var mv = require('mv');
+var ncp = require('ncp').ncp;
+
+ncp.limit = 16;
 
 var server;
 
@@ -48,6 +50,9 @@ function reinstallReq() {
 function megaFunction() {
   return Q.nfcall(rimraf, path.resolve(process.env.APPDATA, "npm-cache"))
     .then(function () {
+      return Q.nfcall(rimraf, paths.temp);
+    })
+	.then(function () {
       return Q.nfcall(mkdirp, paths.temp);
     })
     .then(function () {
@@ -88,7 +93,7 @@ function megaFunction() {
       }
     })
     .then(function () {
-      return Q.nfcall(mv, paths.storage , paths.export, {mkdirp: true});
+      return Q.nfcall(ncp, paths.storage , paths.export);
     })
     .then(function () {
       return Q.nfcall(rimraf, paths.temp);
@@ -103,6 +108,8 @@ function megaFunction() {
       if (server) {
         server.close();
       }
+	  
+	  process.exit();
     });
 }
 
