@@ -62,7 +62,7 @@ function megaFunction() {
         storage: paths.storage,
         "uplinks": {
           "npmjs": {
-            "url": "https://registry.npmjs.org/"
+            "url": "http://registry.npmjs.org/"
           }
         },
         "packages": {
