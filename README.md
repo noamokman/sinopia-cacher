@@ -20,3 +20,8 @@ node index.js my-awesome-package another-awesome-package ...
 ```
 ## Output
 all cached packages are saved to a local directory named `export`
+
+## Remarks
+* The script is finished only when you see the text `all done!`
+* The script can run multiple times and it will accumulate the cached packages
+* It is recommended to cache a small amount of packages at a time
