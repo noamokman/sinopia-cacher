@@ -52,7 +52,7 @@ function megaFunction() {
     .then(function () {
       return Q.nfcall(rimraf, paths.temp);
     })
-	.then(function () {
+    .then(function () {
       return Q.nfcall(mkdirp, paths.temp);
     })
     .then(function () {
@@ -91,6 +91,9 @@ function megaFunction() {
         server.close();
         server = null;
       }
+    })
+    .then(function () {
+      return Q.nfcall(mkdirp, paths.export);
     })
     .then(function () {
       return Q.nfcall(ncp, paths.storage , paths.export);
