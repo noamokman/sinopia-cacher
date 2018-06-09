@@ -1,4 +1,7 @@
 # sinopia-cacher
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/noamokman/sinopia-cacher.svg)](https://greenkeeper.io/)
+
 A cacher for sinopia
 
 # Usage
